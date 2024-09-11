@@ -4,15 +4,23 @@ public class SumOfCubes{
         Scanner myObj = new Scanner(System.in);
         System.out.println("Give me a number: ");
         int digit;
-        int sum;
+        int sum = 0;
+        int i = 1;
+        int digitCubed;
         int number = myObj.nextInt();
-        for (int i = 1; i>3; i++){
-            digit = number%(10^i);
-            digit = digit^3;
-            sum = digit;
-            number = number - digit;
+        while(number != 0){
+            digit = (int) ((int) (number%Math.pow(10, i) )/Math.pow(10, i-1));
+            digitCubed = digit*digit*digit;
+            sum = sum+ digitCubed;
+            number = (int) (number - digit*(Math.pow(10, i-1))) ;
+            i++;
             
-        }
+            
+            
+            System.out.println(sum);
+                }
+
+    System.out.print(sum);
         
     }
 }
